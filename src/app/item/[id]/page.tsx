@@ -1,5 +1,6 @@
 'use client'
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Page() {
     const { id } = useParams();
@@ -22,6 +23,7 @@ export default function Page() {
     return (
         <div className="space-y-2">
             <h1 className="text-2xl font-semibold">{item.title}</h1>
+
             <p>Status: {item.status}</p>
             {item.status !== "done" && (
                 <button
@@ -31,6 +33,13 @@ export default function Page() {
                     Mark as Done ✅
                 </button>
             )} 
+
+            <Link
+                href={`/item/${id}/edit`}
+                className="inline-block px-2 py-1 rounded bg-gray-200"
+            >
+                Edit
+            </Link>
         </div>
     );
 }
