@@ -22,7 +22,7 @@ export default function EditPage() {
         const next = items.map((i: any) =>
             i.id === id ? { ...i, title, status } : i
         );
-        localStorage.setItem("items", JSON.stringify());
+        localStorage.setItem("items", JSON.stringify(next));
         router.push(`/item/${id}`);
     
     }
